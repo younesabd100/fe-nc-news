@@ -5,6 +5,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import SingleArticle from "./components/SiingleArticle";
+import { CommentList } from "./components/CommentList";
 
 function App() {
   return (
@@ -14,6 +15,10 @@ function App() {
         <Routes>
           <Route path="/" element={<ArticleList />} />
           <Route path="/articles/:article_id" element={<SingleArticle />} />
+          <Route
+            path="/articles/:article_id/comments"
+            element={<CommentList />}
+          />
         </Routes>
       </BrowserRouter>
     </>
