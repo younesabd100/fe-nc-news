@@ -9,3 +9,9 @@ export function getArticles() {
     return data.article;
   });
 }
+
+export function getArticlesByArticleId(article_id) {
+  return api.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
+}

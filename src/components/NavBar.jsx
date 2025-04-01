@@ -8,7 +8,7 @@ export default function NavBar() {
         <a href="/" className="nav-link">
           Home
         </a>
-        <a href="/articles" className="nav-link">
+        <a href="/" className="nav-link">
           Articles
         </a>
         <a href="/topics" className="nav-link">
