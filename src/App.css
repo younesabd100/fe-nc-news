@@ -309,3 +309,84 @@ style {
 :root {
   font-size: 16px;
 }
+.comments-section {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #0079d3;
+}
+
+.comment {
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  font-weight: bold;
+  color: #0079d3;
+}
+
+.op {
+  font-size: 0.85em;
+  color: #ff4500;
+  font-weight: bold;
+}
+
+.timestamp {
+  font-size: 0.85em;
+  margin-left: 5px;
+}
+
+.comment-text {
+  margin: 10px 0;
+}
+
+.comment-text a {
+  color: #0079d3;
+  text-decoration: none;
+}
+
+.comment-text a:hover {
+  text-decoration: underline;
+}
+
+.reply-btn {
+  background: none;
+  border: none;
+  color: #0079d3;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.reply-btn:hover {
+  text-decoration: underline;
+}
+
+.replies {
+  margin-left: 20px;
+  border-left: 2px solid #ddd;
+  padding-left: 10px;
+}

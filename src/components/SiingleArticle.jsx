@@ -1,9 +1,12 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useApiRequest } from "./useApiRequest";
 import { getArticlesByArticleId } from "../api";
 import { Loading } from "../Routes/Loading";
+import { CommentList } from "./CommentList";
+import { useState } from "react";
 
 export default function SingleArticle() {
+  const [showComments, setShowComments] = useState(false);
   const { article_id } = useParams();
 
   const {
@@ -28,9 +31,11 @@ export default function SingleArticle() {
         <p>{article.body}</p>
         <div className="article-footer">
           <button className="like-btn">👍 {article.votes}</button>
-          <button className="comment-btn">
+
+          <button className="comment-btn" onClick={() => setShowComments(true)}>
             💬 {article.comment_count} Comments
           </button>
+          {showComments && <CommentList />}
         </div>
       </section>
     </>
