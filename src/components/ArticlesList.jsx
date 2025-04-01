@@ -1,25 +1,28 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../api";
 import ArticleCards from "./ArticleCards";
+import { Loading } from "../Routes/Loading";
 
 export default function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getArticles().then((articles) => {
-      setArticles(articles);
-
-      setIsLoading(false);
-    });
+    setIsLoading(true);
+    getArticles()
+      .then((articles) => {
+        setArticles(articles);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   if (isLoading) {
-    return (
-      <div>
-        <p> Loading ...</p>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
