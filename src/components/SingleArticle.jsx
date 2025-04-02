@@ -3,11 +3,14 @@ import { useApiRequest } from "./useApiRequest";
 import { getArticlesByArticleId } from "../api";
 import { Loading } from "../Routes/Loading";
 import { CommentList } from "./CommentList";
-import { useState } from "react";
+import { use, useState } from "react";
 import { VoteHandler } from "./VoteHandler";
+import { PostComments } from "./PostComments";
 
 export default function SingleArticle() {
   const [showComments, setShowComments] = useState(false);
+  const [showAdder, setShowAdder] = useState(false);
+  const [commentCount, setCommentCount] = useState(0);
   const { article_id } = useParams();
 
   const {
@@ -15,6 +18,16 @@ export default function SingleArticle() {
     isLoading,
     isError,
   } = useApiRequest(getArticlesByArticleId, article_id);
+
+  useState(() => {
+    if (article) {
+      setCommentCount(article.comment_count);
+    }
+  }, [article]);
+
+  function updateCommentCount() {
+    setCommentCount((prevCount) => prevCount + 1);
+  }
 
   if (isLoading) {
     return <Loading />;
@@ -32,10 +45,24 @@ export default function SingleArticle() {
         <p>{article.body}</p>
         <div className="article-footer">
           <VoteHandler article={article} />
-          <button className="comment-btn" onClick={() => setShowComments(true)}>
-            💬 {article.comment_count} Comments
+          <button className="comment-btn" onClick={() => setShowAdder(true)}>
+            💬 Add Comment
           </button>
-          {showComments && <CommentList />}
+          <button
+            className="comment-btn"
+            onClickCapture={() => setShowComments(true)}
+          >
+            💬 {commentCount} Comments
+          </button>
+
+          {showComments && <CommentList article_id={article_id} />}
+          {showAdder && (
+            <PostComments
+              article={article}
+              onSuccess={() => setShowAdder(false)}
+              updateCommentCount={updateCommentCount}
+            />
+          )}
         </div>
       </section>
     </>

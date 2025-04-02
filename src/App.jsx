@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
-import SingleArticle from "./components/SiingleArticle";
+import SingleArticle from "./components/SingleArticle";
 import { CommentList } from "./components/CommentList";
 
 function App() {

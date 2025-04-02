@@ -1,12 +1,9 @@
-import { useParams } from "react-router-dom";
 import { getCommentsByArticleId } from "../api";
 import { CommentCards } from "./CommentsCards";
 import { useApiRequest } from "./useApiRequest";
 import { Loading } from "../Routes/Loading";
 
-export function CommentList(...args) {
-  const { article_id } = useParams();
-
+export function CommentList({ article_id }) {
   const {
     data: comments,
     isLoading,
