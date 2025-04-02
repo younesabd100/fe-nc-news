@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { VoteHandler } from "./VoteHandler";
 
 export default function ArticleCards({ article }) {
   return (
@@ -13,7 +14,7 @@ export default function ArticleCards({ article }) {
           <img src={article.article_img_url} />
         </Link>
         <div className="article-footer">
-          <button className="like-btn">👍 {article.votes}</button>
+          <VoteHandler article={article} />
           <Link to={`/articles/${article.article_id}/comments`}>
             <button className="comment-btn">
               💬 {article.comment_count} Comments
