@@ -21,3 +21,11 @@ export function getCommentsByArticleId(article_id) {
     return data.comments;
   });
 }
+
+export function patchVotesByArticleId(article_id) {
+  return api
+    .get(`/articles/${article_id}`, { inc_votes: 1 })
+    .then(({ data }) => {
+      return data.comments;
+    });
+}

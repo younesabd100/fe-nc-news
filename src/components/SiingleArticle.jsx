@@ -4,6 +4,7 @@ import { getArticlesByArticleId } from "../api";
 import { Loading } from "../Routes/Loading";
 import { CommentList } from "./CommentList";
 import { useState } from "react";
+import { VoteHandler } from "./VoteHandler";
 
 export default function SingleArticle() {
   const [showComments, setShowComments] = useState(false);
@@ -30,8 +31,7 @@ export default function SingleArticle() {
         <img src={article.article_img_url} />
         <p>{article.body}</p>
         <div className="article-footer">
-          <button className="like-btn">👍 {article.votes}</button>
-
+          <VoteHandler article={article} />
           <button className="comment-btn" onClick={() => setShowComments(true)}>
             💬 {article.comment_count} Comments
           </button>
