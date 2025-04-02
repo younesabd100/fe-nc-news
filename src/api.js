@@ -23,9 +23,8 @@ export function getCommentsByArticleId(article_id) {
 }
 
 export function patchVotesByArticleId(article_id) {
-  return api
-    .get(`/articles/${article_id}`, { inc_votes: 1 })
-    .then(({ data }) => {
-      return data.comments;
-    });
+  return api.patch(`/articles/${article_id}`, { inc_votes: 1 });
+}
+export function postCommentsByArticleId(article_id, newComment) {
+  return api.post(`/articles/${article_id}/comments`, newComment);
 }

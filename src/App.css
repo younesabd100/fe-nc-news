@@ -381,3 +381,43 @@ h2 {
   border-left: 2px solid #ddd;
   padding-left: 10px;
 }
+.comment-box {
+  width: 500px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+}
+input {
+  height: 40px;
+  margin-bottom: 10px;
+}
+textarea {
+  height: 80px;
+  resize: none;
+}
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+button {
+  background-color: #0079d3;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+button:hover {
+  background-color: #005ea6;
+}
