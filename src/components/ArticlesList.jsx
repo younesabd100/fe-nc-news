@@ -2,14 +2,18 @@ import { useEffect, useState } from "react";
 import { getArticles } from "../api";
 import ArticleCards from "./ArticleCards";
 import { Loading } from "../Routes/Loading";
+import { useSearchParams } from "react-router-dom";
 
 export default function ArticleList() {
   const [articles, setArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [searchParams] = useSearchParams();
+  const filterByQuery = searchParams.get("topic");
 
   useEffect(() => {
     setIsLoading(true);
-    getArticles()
+    getArticles(filterByQuery)
       .then((articles) => {
         setArticles(articles);
       })
@@ -19,7 +23,7 @@ export default function ArticleList() {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [filterByQuery]);
 
   if (isLoading) {
     return <Loading />;
