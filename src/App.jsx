@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import SingleArticle from "./components/SingleArticle";
 import { CommentList } from "./components/CommentList";
 import { TopicList } from "./Routes/TopicList";
+import { SortBy } from "./components/SortBy";
 
 function App() {
   return (
