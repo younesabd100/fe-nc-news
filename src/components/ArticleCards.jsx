@@ -10,11 +10,11 @@ export default function ArticleCards({ article }) {
   const [showAdder, setShowAdder] = useState(false);
 
   function updateCommentCount() {
-    setCommentCount((prevCount) => prevCount + 1);
+    setCommentCount((prevCount) => Number(prevCount) + 1);
   }
 
   function decreaseCommentCount() {
-    setCommentCount((prevCount) => prevCount - 1);
+    setCommentCount((prevCount) => Number(prevCount) - 1);
   }
 
   return (
@@ -28,6 +28,10 @@ export default function ArticleCards({ article }) {
           </p>
           <img src={article.article_img_url} />
         </Link>
+        <Link to={`/?topic=${article.topic}`}>
+          <p>{article.topic}</p>
+        </Link>
+
         <div className="article-footer">
           <VoteHandler article={article} />
           <button className="comment-btn" onClick={() => setShowComments(true)}>

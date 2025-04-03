@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import SingleArticle from "./components/SingleArticle";
 import { CommentList } from "./components/CommentList";
+import { TopicList } from "./Routes/TopicList";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             path="/articles/:article_id/comments"
             element={<CommentList />}
           />
+          <Route path="/Topics" element={<TopicList />} />
         </Routes>
       </BrowserRouter>
     </>
