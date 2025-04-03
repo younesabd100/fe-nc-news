@@ -12,6 +12,11 @@ export default function ArticleCards({ article }) {
   function updateCommentCount() {
     setCommentCount((prevCount) => prevCount + 1);
   }
+
+  function decreaseCommentCount() {
+    setCommentCount((prevCount) => prevCount - 1);
+  }
+
   return (
     <>
       <section className="article-card">
@@ -31,7 +36,12 @@ export default function ArticleCards({ article }) {
           <button className="comment-btn" onClick={() => setShowAdder(true)}>
             💬 Add Comments
           </button>
-          {showComments && <CommentList article_id={article.article_id} />}
+          {showComments && (
+            <CommentList
+              article_id={article.article_id}
+              decreaseCommentCount={decreaseCommentCount}
+            />
+          )}
           {showAdder && (
             <PostComments
               article={article}

@@ -28,3 +28,7 @@ export function patchVotesByArticleId(article_id) {
 export function postCommentsByArticleId(article_id, newComment) {
   return api.post(`/articles/${article_id}/comments`, newComment);
 }
+
+export function deleteCommentByCommentId(comment_id) {
+  return api.delete(`/comments/${comment_id}`);
+}
