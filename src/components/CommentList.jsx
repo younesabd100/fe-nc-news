@@ -3,7 +3,7 @@ import { CommentCards } from "./CommentsCards";
 import { useApiRequest } from "./useApiRequest";
 import { Loading } from "../Routes/Loading";
 
-export function CommentList({ article_id }) {
+export function CommentList({ article_id, decreaseCommentCount }) {
   const {
     data: comments,
     isLoading,
@@ -18,7 +18,13 @@ export function CommentList({ article_id }) {
     <>
       <ul className="items-list">
         {comments.map((comment) => {
-          return <CommentCards comment={comment} key={comment.comment_id} />;
+          return (
+            <CommentCards
+              comment={comment}
+              key={comment.comment_id}
+              decreaseCommentCount={decreaseCommentCount}
+            />
+          );
         })}
       </ul>
     </>
