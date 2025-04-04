@@ -6,6 +6,7 @@ import { CommentList } from "./CommentList";
 import { use, useState } from "react";
 import { VoteHandler } from "./VoteHandler";
 import { PostComments } from "./PostComments";
+import { ErrorComponent } from "./ErrorComponents";
 
 export default function SingleArticle() {
   const [showComments, setShowComments] = useState(false);
@@ -32,7 +33,9 @@ export default function SingleArticle() {
   if (isLoading) {
     return <Loading />;
   }
-
+  if (isError) {
+    return <ErrorComponent message={isError.message} />;
+  }
   return (
     <>
       <section className="article-card">

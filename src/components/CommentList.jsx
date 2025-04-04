@@ -13,7 +13,9 @@ export function CommentList({ article_id, decreaseCommentCount }) {
   if (isLoading) {
     return <Loading />;
   }
-
+  if (isError) {
+    return <ErrorComponent message={isError.message} />;
+  }
   return (
     <>
       <ul className="items-list">
