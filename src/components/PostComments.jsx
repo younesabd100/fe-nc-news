@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { postCommentsByArticleId } from "../api";
+import { ErrorComponent } from "./ErrorComponents";
 
 export function PostComments({ article, updateCommentCount }) {
   const initialValues = {
@@ -7,6 +8,7 @@ export function PostComments({ article, updateCommentCount }) {
     body: "",
   };
   const [newComments, setNewComments] = useState(initialValues);
+  const [error, setError] = useState(null);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -24,9 +26,11 @@ export function PostComments({ article, updateCommentCount }) {
         updateCommentCount();
       })
       .catch((error) => {
-        console.log(error);
-        alert("Failed to post comment. Please try again.");
+        setError(error);
       });
+  }
+  if (error) {
+    return <ErrorComponent message={error.message} />;
   }
 
   return (

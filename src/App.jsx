@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import SingleArticle from "./components/SingleArticle";
 import { CommentList } from "./components/CommentList";
 import { TopicList } from "./Routes/TopicList";
-import { SortBy } from "./components/SortBy";
+import { ErrorComponent } from "./components/ErrorComponents";
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
+          <Route path="*" element={<ErrorComponent />} />
           <Route path="/" element={<ArticleList />} />
           <Route path="/articles/:article_id" element={<SingleArticle />} />
           <Route
