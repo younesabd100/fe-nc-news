@@ -40,65 +40,6 @@ element.style {
   height: var(--size-button-sm-h);
   font: var(--font-button-sm);
 }
-constructed stylesheet .font-semibold {
-  font-weight: 600;
-}
-constructed stylesheet .text-12,
-.text-12\/4 {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-constructed stylesheet .px-sm {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-constructed stylesheet .border-md {
-  border-width: 0.125rem;
-}
-constructed stylesheet .justify-center {
-  justify-content: center;
-}
-constructed stylesheet .items-center {
-  align-items: center;
-}
-constructed stylesheet .flex-row {
-  flex-direction: row;
-}
-constructed stylesheet .h-xl {
-  height: 2rem;
-}
-constructed stylesheet .inline-flex {
-  display: inline-flex;
-}
-constructed stylesheet .flex {
-  display: flex;
-}
-constructed stylesheet .relative {
-  position: relative;
-}
-constructed stylesheet .button-secondary {
-  --button-color-background-default: var(--color-button-secondary-background);
-  --button-color-background-focus: var(
-    --color-button-secondary-background-focus
-  );
-  --button-color-background-hover: var(
-    --color-button-secondary-background-hover
-  );
-  --button-color-background-active: linear-gradient(
-    var(--color-button-secondary-background-hover),
-    var(--color-button-secondary-background-hover)
-  );
-  --button-color-background-disabled: var(
-    --color-button-secondary-background-disabled
-  );
-  --button-color-background-activated: var(
-    --color-button-secondary-background-activated
-  );
-  --button-color-text-default: var(--color-button-secondary-text);
-  --button-color-text-disabled: var(--color-button-secondary-text-disabled);
-  --button-color-text-activated: var(--color-button-secondary-text-activated);
-  --button-border-color-default: var(--color-button-secondary-border);
-}
 
 .user-profile {
   background-color: white;
